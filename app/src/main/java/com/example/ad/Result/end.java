@@ -1,4 +1,4 @@
-package com.example.ad;
+package com.example.ad.Result;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ad.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,14 +24,18 @@ public class end extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end);
 
-
         textView = (TextView) findViewById(R.id.tv_question1);
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        int a = bundle.getInt("correct");
-        int b = bundle.getInt("wrong");
 
-        textView.setText("Total correct:" + a + "\n" + "Total wrong:" + b);
+        //Get the data from bundle
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            int a = bundle.getInt("correct");
+            int b = bundle.getInt("wrong");
+
+            textView.setText("Total correct:" + a + "\n" + "Total wrong:" + b);
+        }
+
+
 
 
     }

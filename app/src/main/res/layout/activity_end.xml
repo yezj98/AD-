@@ -4,19 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".end">
+    tools:context=".Result.end">
 
     <TextView
         android:id="@+id/tv_question1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:text="Question"
+        android:text="Result"
         android:textSize="25sp"
         android:paddingTop="20sp"
         android:gravity="center_horizontal"
         android:layout_above="@+id/btn_one"
         android:layout_alignParentTop="true"/>
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
