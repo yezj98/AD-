@@ -79,13 +79,13 @@ public class LogInActivity extends AppCompatActivity {
         Log.v("Onstart:", "mainact");
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-//        if (firebaseUser != null) {
-//            // If user is already logged in upon opening, go to home intent
-//            Intent intent = new Intent(this, profilePicture.class);
-//            startActivity(intent);
-//            finish();
-//        } else {
-//        }
+        if (firebaseUser != null) {
+            // If user is already logged in upon opening, go to home intent
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+        }
 
 
     }

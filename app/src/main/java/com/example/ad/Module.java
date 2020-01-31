@@ -39,7 +39,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class Module extends AppCompatActivity {
     Button btn_one, btn_two, btn_three, btn_four, btn_restart;
     int a = 0, i = 0;
     TextView tv_question, tv_wrong, tv_correct;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
         tv_correct.setText("Total correct:" + correct);
 
-        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog = new ProgressDialog(Module.this);
 
         progressDialog.setMessage("Restarting");
 
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("countnumber ", "" + a);
         int number = list.get(a);
         Log.d("xnumber ", "" + number);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("ECS").child("Q" + number);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Introduction to computer and operating system").child("Q" + number);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (btn_one.getText().toString().equals(get.getAnswer())) {
 
-                            Toast.makeText(MainActivity.this, "You Are Correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Module.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                             btn_one.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
                             correct++;
                             a++;
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                             }, 100);
                         } else {
                             btn_one.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
-                            
+
                             wrong++;
                             a++;
                             Handler handler = new Handler();
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (btn_two.getText().toString().equals(get.getAnswer())) {
-                            Toast.makeText(MainActivity.this, "You Are Correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Module.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                             correct++;
                             a++;
                             btn_two.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (btn_three.getText().toString().equals(get.getAnswer())) {
-                            Toast.makeText(MainActivity.this, "You Are Correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Module.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                             correct++;
                             a++;
                             btn_three.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (btn_four.getText().toString().equals(get.getAnswer())) {
-                            Toast.makeText(MainActivity.this, "You Are Correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Module.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                             correct++;
                             a++;
                             btn_four.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
@@ -324,13 +324,13 @@ public class MainActivity extends AppCompatActivity {
             bundle.putInt("correct", correct);
             Bundle bundle1 = new Bundle();
             bundle1.putInt("wrong", wrong);
-            Intent intent = new Intent(MainActivity.this, end.class);
-            intent.putExtra("FROM", "Main");
+            Intent intent = new Intent(Module.this, end.class);
+            intent.putExtra("FROM", "Module");
             intent.putExtras(bundle);
             intent.putExtras(bundle1);
             startActivity(intent);
 
-            marks obj =new marks(correct,"ECS");
+            marks obj =new marks(correct,"ICOS");
             upload(obj);
         }
 
@@ -345,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
 
-                Toast.makeText(MainActivity.this, "The score has been uploaded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Module.this, "The score has been uploaded", Toast.LENGTH_SHORT).show();
             }
         });
 
