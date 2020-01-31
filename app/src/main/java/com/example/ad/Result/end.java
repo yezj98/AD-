@@ -18,6 +18,7 @@ import com.example.ad.MainActivity;
 import com.example.ad.MenuActivity;
 import com.example.ad.Module;
 import com.example.ad.R;
+import com.example.ad.ShowCorrectActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +39,7 @@ public class end extends AppCompatActivity {
     TextView topScore1;
     TextView topScore2;
     TextView topScore3, moduleName, module1, module2, module3;
-    Button home, again;
+    Button home, again, show;
 
 
     @Override
@@ -48,6 +49,8 @@ public class end extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String previous  = intent.getStringExtra("FROM");
+
+        show = findViewById(R.id.button5);
 
           topScore1 = findViewById(R.id.topScore1);
           topScore2 = findViewById(R.id.topScore2);
@@ -96,6 +99,14 @@ public class end extends AppCompatActivity {
                     startActivity(intent1);
                 }
 
+            }
+        });
+
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent5 = new Intent(end.this, ShowCorrectActivity.class);
+                startActivity(intent5);
             }
         });
     }

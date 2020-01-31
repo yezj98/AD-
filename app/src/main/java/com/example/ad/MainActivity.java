@@ -32,9 +32,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -46,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
     int correct = 0, wrong = 0;
     ArrayList<Integer> list = new ArrayList<Integer>(10);
     ProgressDialog progressDialog;
+    List <String> wrongList = new ArrayList<>();
+
+
+
 
     private String answer;
 
@@ -55,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         btn_restart = (Button) findViewById(R.id.restart);
 
@@ -158,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
                             }, 100);
                         } else {
                             btn_one.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+
+                            wrongList.add(tv_question.getText().toString());
+                            Log.d ("33", ""+ wrongList);
                             
                             wrong++;
                             a++;
@@ -196,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             btn_two.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
                             wrong++;
+                            wrongList.add(tv_question.getText().toString());
                             a++;
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
@@ -229,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             btn_three.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
                             wrong++;
+                            wrongList.add(tv_question.getText().toString());
                             a++;
                             NextQuestion();
                             Handler handler = new Handler();
@@ -262,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             btn_four.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
                             wrong++;
+                            wrongList.add(tv_question.getText().toString());
                             a++;
                             NextQuestion();
                             Handler handler = new Handler();
@@ -320,10 +333,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (a == 10) {
+            if (wrongList.size() >=1 ){
+                Intent intent = new Intent(MainActivity.this, ShowCorrectActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("ARRAY", (Serializable)wrongList);
+                intent.putExtra("BUNDLE", bundle);
+                startActivity(intent);
+            }
+
             Bundle bundle = new Bundle();
             bundle.putInt("correct", correct);
             Bundle bundle1 = new Bundle();
             bundle1.putInt("wrong", wrong);
+
             Intent intent = new Intent(MainActivity.this, end.class);
             intent.putExtra("FROM", "Main");
             intent.putExtras(bundle);
