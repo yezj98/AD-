@@ -63,7 +63,7 @@
         android:paddingTop="30dp"
         android:text="Loading..."
         android:textSize="18sp"
-        android:textColor="#090505"/>
+        android:textColor="#020101"/>
 
     <Button
         android:id="@+id/restart"
