@@ -12,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_two"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/button_module"
+        android:textColor="#070404"
+        android:textSize="13dp"
         android:text="Loading..." />
 
     <Button
@@ -20,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_three"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:text="Loading..." />
 
     <Button
@@ -28,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_four"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
         android:text="Loading..." />
 
     <Button
@@ -58,11 +61,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_one"
         android:layout_alignRight="@+id/btn_one"
-        android:layout_marginBottom="30dp"
-        android:background="#E68A84"
-        android:text="Restart"
+        android:layout_marginRight="38dp"
 
-        ></Button>
+        android:layout_marginBottom="69dp"
+        android:background="#E68A84"
+        android:text="Restart"></Button>
 
     <TextView
         android:id="@+id/correct"
@@ -70,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_one"
         android:layout_alignLeft="@+id/btn_one"
-        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="246dp"
         android:text="Loading "
         android:textSize="30dp"
         android:textStyle="bold" />

@@ -5,14 +5,17 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient1">
 
     <Button
         android:id="@+id/btn_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_two"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textColor="#020101"
+        android:background="@drawable/button_module"
         android:text="Loading..." />
 
     <Button
@@ -20,8 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_three"
-        android:layout_centerHorizontal="true"
-        android:text="Loading..." />
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_module"
+        android:text="Loading..."
+        android:textColor="#020101" />
 
     <Button
         android:id="@+id/btn_three"
@@ -29,6 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_four"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textColor="#020101"
+        android:background="@drawable/button_module"
         android:text="Loading..." />
 
     <Button
@@ -38,19 +46,24 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
+        android:textColor="#020101"
+        android:background="@drawable/button_module"
         android:text="Loading..." />
 
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="490dp"
         android:layout_above="@+id/btn_one"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-1dp"
+        android:background="#00535151"
         android:gravity="center_horizontal"
         android:paddingTop="30dp"
         android:text="Loading..."
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textColor="#090505"/>
 
     <Button
         android:id="@+id/restart"
@@ -58,21 +71,22 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_one"
         android:layout_alignRight="@+id/btn_one"
-        android:layout_marginBottom="30dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="58dp"
         android:background="#E68A84"
-        android:text="Restart"
-
-        ></Button>
+        android:text="Restart"></Button>
 
     <TextView
         android:id="@+id/correct"
-        android:layout_width="wrap_content"
+        android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_one"
         android:layout_alignLeft="@+id/btn_one"
-        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="226dp"
+        android:layout_marginBottom="153dp"
         android:text="Loading "
-        android:textSize="30dp"
+        android:textColor="#0A0101"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -80,12 +94,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_one"
-        android:layout_marginBottom="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="275dp"
+        android:layout_marginBottom="153dp"
         android:text="Loading "
-        android:textSize="30dp"
-        android:textStyle="bold"
-
-        />
+        android:textColor="#0A0101"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
