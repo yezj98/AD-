@@ -46,7 +46,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:textColor="#0F0707"
+        android:textColor="#090505"
         android:background="@drawable/button_module"
         android:text="Loading..." />
 
